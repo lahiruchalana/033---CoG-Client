@@ -21,25 +21,16 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
           <Routes>
-                <Route path='/user_registration' element={<UserRegistration />} />
-                <Route path='/login' element={<UserLogin />} />
+            <Route path='/' element={<UserHome />} />
+            <Route path='/user_cart' element={<UserCart />} />
+            <Route path='/admin_home' element={<AdminHome />} />
+            <Route path='/vendor_home' element={<VendorHome />} />
+            <Route path='/items' element={<ItemPage />} />
+            <Route path='/admin_dashboard' element={<AdminDashboard />} />
+            <Route path='/user_registration' element={<UserRegistration />} />
+            <Route path='/login' element={<UserLogin />} />
           </Routes>
-        </div>
-        <Header />
-          <div>
-            <Routes>
-              <Route path='/' element={<UserHome />} />
-              <Route path='/user_cart' element={<UserCart />} />
-              <Route path='/admin_home' element={<AdminHome />} />
-              <Route path='/vendor_home' element={<VendorHome />} />
-              
-              <Route path='/items' element={<ItemPage />} />
-
-              <Route path='/admin_dashboard' element={<AdminDashboard />} />
-            </Routes>
-          </div>
       </Router>
     </div>
   );

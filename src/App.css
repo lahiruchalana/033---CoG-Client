@@ -149,6 +149,7 @@ label {
   border-width: 2px; 
   border-color: #a6a7aa;
   margin: 10px;
+  box-shadow: 2px 2px 10px 2px #c6c6c6;
 }
 
 /* #item_box_two {
@@ -309,7 +310,7 @@ label {
 }
 
 #cart_icon:hover {
-  background: rgb(40, 254, 3);
+  font-size: 24px;
 }
 
 #signup_button {

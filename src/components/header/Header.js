@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GetCategories } from '../../requests/GetRequests'
 import axios from "axios";
-
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -14,6 +13,7 @@ import Col from 'react-bootstrap/Col';
 import { useGlobalState } from '../../global/UserGlobalData'
 import logo from '../../assets/Logo.webp';
 import { MdShoppingCart } from 'react-icons/md';
+import { useNavigate } from "react-router-dom";
 
 function Header() {
 
@@ -24,6 +24,7 @@ function Header() {
     const [isNullChildren, setIsNullChildren] = useState(false); 
     const [categoryList, setCategoryList] = useGlobalState('categoryList');
     const getCategoryURL = GetCategories();
+    const navigate = useNavigate();
 
     useEffect(() => {   
         axios.get(getCategoryURL, {},).then((response) => {
@@ -59,7 +60,9 @@ function Header() {
 
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container fluid>
-                    <img className="logo_image" src={logo} alt="Logo" />
+                    <a href="/">
+                        <img className="logo_image" src={logo} alt="Logo" />
+                    </a>
                     <Row >
                         <Col>
                             <a href="/cart" >
@@ -72,7 +75,7 @@ function Header() {
                                 style={{ maxHeight: '100px', width: "70px" }}
                                 navbarScroll
                             >
-                                <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="#action1">Sign up</Nav.Link>
+                                <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="/user_registration">Sign up</Nav.Link>
                             </Nav>  
                         </Col>
                         <Col>
@@ -81,7 +84,8 @@ function Header() {
                                 style={{ maxHeight: '100px', width: "60px" }}
                                 navbarScroll
                             >
-                                <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="#action2">Log in</Nav.Link>                            </Nav>  
+                                <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="/login">Log in</Nav.Link>                            
+                            </Nav>  
                         </Col>
                     </Row>
                 </Container>
