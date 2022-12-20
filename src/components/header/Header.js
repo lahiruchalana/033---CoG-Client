@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col';
 
 import { useGlobalState } from '../../global/UserGlobalData'
 import logo from '../../assets/Logo.webp';
+import { MdShoppingCart } from 'react-icons/md';
 
 function Header() {
 
@@ -59,11 +60,16 @@ function Header() {
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container fluid>
                     <img className="logo_image" src={logo} alt="Logo" />
-                    <Row id="">
+                    <Row >
                         <Col>
+                            <a href="/cart" >
+                                <MdShoppingCart id="cart_icon" color="white" /> 
+                            </a>
+                        </Col>
+                        <Col id="signup_button">
                             <Nav
                                 className="me-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px' }}
+                                style={{ maxHeight: '100px', width: "70px" }}
                                 navbarScroll
                             >
                                 <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="#action1">Sign up</Nav.Link>
@@ -72,7 +78,7 @@ function Header() {
                         <Col>
                             <Nav
                                 className="me-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px' }}
+                                style={{ maxHeight: '100px', width: "60px" }}
                                 navbarScroll
                             >
                                 <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="#action2">Log in</Nav.Link>                            </Nav>  
@@ -120,13 +126,16 @@ function Header() {
                     <Nav
                         id="category_name_bar"
                         className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px' }}
+                        style={{ maxHeight: '65px' }}
                         navbarScroll
                     >
                             <Nav.Link id="rent_anything_text">Rent anything</Nav.Link>
                     </Nav>                
                 </Container>
             </Navbar>
+
+            <div id="belove_of_rent_anything_text">From the largest equipment rental marketplace on the planet</div>
+
 
             {/* ----------- Starts, Category header ----------- */}
 

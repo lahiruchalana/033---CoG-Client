@@ -11,7 +11,7 @@ import Rating from 'react-rating';
 
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { TiTick } from 'react-icons/ti';
-import ItemBox from "../item_box/ItemBox";
+import ItemBox from "../../components/item_box/ItemBox";
 
 
 function ItemPage() {
@@ -26,7 +26,7 @@ function ItemPage() {
             {itemName: "Abdcs", rate: 5, shortDescription: "Lorem ipsum dolor sit amet, consectetur adore magna aliqua. U", imageUrl: ""}, 
             {itemName: "Bscsh", rate: 4, shortDescription: "Lorem illamco labor t ut labore et dolore labor", imageUrl: ""},
             {itemName: "Zjbfy", rate: 3, shortDescription: "Sed do eiusmod tempor incididunt ut labore et dolore labor", imageUrl: ""},
-            {itemName: "Khdg", rate: 4, shortDescription: "Lorem ipsulore magna aliqua. Ut enim ad minim veniam, quis ", imageUrl: ""},
+            {itemName: "Khdg", rate: 4, shortDescription: "Lorem ipsulore magna aliqua. Ut enim ad minim veniam, quis ", imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11285.png"},
             {itemName: "Ghtgvc", rate: 2, shortDescription: "Lorem ipsum dolor sitquis nostrud exercitation ullamco labor", imageUrl: ""}
         ])
     })
@@ -34,7 +34,7 @@ function ItemPage() {
     const getItemByIdURL = GetItemById();
 
     useEffect(() => {   
-        axios.get(getItemByIdURL, {},).then((response) => {
+        axios.get(getItemByIdURL).then((response) => {
             setItem(response.data.data);
             console.log("Response: ", response.data.data);
             console.log("item: ", item);
@@ -52,10 +52,10 @@ function ItemPage() {
         })
 
 
-    }, [itemId])
+    }, [itemId, item.id])
 
     if (itemId===null) {
-        navigator("/user_home")
+        navigator("/")
     }
 
     return (
@@ -152,7 +152,6 @@ function ItemPage() {
             <Row>
                 {
                     itemList.map((item, key) => {
-                        console.log(key, item);
                         return  <Col>
                                     <ItemBox itemName={item.itemName} rate={item.rate} shortDescription={item.shortDescription} imageUrl={item.imageUrl} key={key}/>
                                 </Col>

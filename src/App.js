@@ -13,7 +13,7 @@ import UserCart from "./views/user/Cart";
 import AdminHome from "./views/admin/Home";
 import VendorHome from "./views/vendor/Home";
 import AdminDashboard from "./views/admin/AdminDashboard"
-import ItemPage from "./components/item_page/ItemPage";
+import ItemPage from "./views/item/ItemPage";
 import Header from "./components/header/Header";
 
 
@@ -21,12 +21,16 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <div>
+          <Routes>
+                <Route path='/user_registration' element={<UserRegistration />} />
+                <Route path='/login' element={<UserLogin />} />
+          </Routes>
+        </div>
         <Header />
           <div>
             <Routes>
-              <Route path='/user_registration' element={<UserRegistration />} />
-              <Route path='/login' element={<UserLogin />} />
-              <Route path='/user_home' element={<UserHome />} />
+              <Route path='/' element={<UserHome />} />
               <Route path='/user_cart' element={<UserCart />} />
               <Route path='/admin_home' element={<AdminHome />} />
               <Route path='/vendor_home' element={<VendorHome />} />

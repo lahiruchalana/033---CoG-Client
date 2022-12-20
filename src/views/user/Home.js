@@ -2,28 +2,17 @@ import React, { useState, useEffect } from "react";
 import { GetCategories } from '../../requests/GetRequests'
 import axios from "axios";
 
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { useGlobalState } from '../../global/UserGlobalData'
-import logo from '../../assets/Logo.webp';
 import LevelOneBox from "../../components/levelOneBox/LevelOneBox";
-import { FaBeer } from 'react-icons/fa';
 
 function Home() {
     const [categoryArray, setCategoryArray] = useState([]);
     const [clickedCategoryName, setClickedCategoryName] = useState(null);
-    const [showDropDown, setShowDropDown] = useState(false);
-    const [expandKey, setExpandKey] = useState(null);
     const [isNullChildren, setIsNullChildren] = useState(false); 
     const [categoryList, setCategoryList] = useGlobalState('categoryList');
-    const [itemId, setItemId] = useGlobalState('itemId');
     const getCategoryURL = GetCategories();
 
     useEffect(() => {   
