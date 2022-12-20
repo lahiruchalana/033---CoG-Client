@@ -314,5 +314,59 @@ label {
 }
 
 #signup_button {
-  margin-right: -25px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+}
+
+#more_items_button {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#go_to_checkout_button {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+}
+
+#remove_from_cart_button {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#change_selections_button {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#proceed_to_checkout_button {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#item_image_in_cart {
+  object-fit: contain;
+  width: 50%;
+  height: auto;
 }
