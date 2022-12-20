@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 
 import { useGlobalState } from '../../global/UserGlobalData'
 import LevelOneBox from "../../components/levelOneBox/LevelOneBox";
+import Header from "../../components/header/Header";
 
 function Home() {
     const [categoryArray, setCategoryArray] = useState([]);
@@ -44,7 +45,7 @@ function Home() {
 
     return(
         <div>
-
+            <Header/>
             {/* ----------- Starts, Item boxes ----------- */}
 
             <Row>
@@ -59,16 +60,16 @@ function Home() {
                 
             <Row id="item_level_one_collection_row">
                 <Col id="item_box_container">
-                    <LevelOneBox title="Hot rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": ["https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png"]}'/>
+                    <LevelOneBox title="Hot rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png" ]}'/>
                 </Col>
                 <Col id="item_box_container">
-                    <LevelOneBox title="Most searched rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": ["https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png"]}'/>
+                    <LevelOneBox title="Most searched rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png" ]}'/>
                 </Col>
                 <Col id="item_box_container">
-                    <LevelOneBox title="New rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": ["https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png"]}'/>
+                    <LevelOneBox title="New rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png" ]}'/>
                 </Col>
                 <Col id="item_box_container">
-                    <LevelOneBox title="Rental categories" itemArray='{ "itemId": [1,3,4,5], "imageURL": ["https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png"]}'/>
+                    <LevelOneBox title="Rental categories" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png" ]}'/>
                 </Col>
             </Row>
 

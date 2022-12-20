@@ -1,13 +1,16 @@
 import { useGlobalState } from '../global/UserGlobalData'
 
+const catalogServiceUrl = process.env.CATALOG_SERVICE_API_URL
+const cartServiceUrl = process.env.CART_SERVICE_API_URL
+
 function GetCategories() {
-    const getCategoryURL = "http://localhost:9095/api/v5/category/all/children";
+    const getCategoryURL = catalogServiceUrl + "category/all/children";
 
     return getCategoryURL
 }
 
 function GetItems() {
-    const getCategoryURL = "http://localhost:9095/api/v5/item/all";
+    const getCategoryURL = catalogServiceUrl + "item/all";
 
     return getCategoryURL
 }
@@ -15,9 +18,17 @@ function GetItems() {
 function GetItemById() {
     const [itemId, setItemId] = useGlobalState('itemId');
 
-    const getItemURL = `http://localhost:9095/api/v5/item/items/${itemId}`;
+    const getItemURL = catalogServiceUrl + `item/items/${itemId}`;
 
     return getItemURL
 }
 
-export { GetCategories, GetItems, GetItemById };
+function GetCartByUserId() {
+    const [userId, setUserId] = useGlobalState('userId');
+
+    const getCartUrl = cartServiceUrl + `cart/getByUserId/${userId}`;
+
+    return getCartUrl
+}
+
+export { GetCategories, GetItems, GetItemById, GetCartByUserId };

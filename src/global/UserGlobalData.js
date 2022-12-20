@@ -10,7 +10,8 @@ const { useGlobalState } = createGlobalState({
     refresh_token: null,
     authList: [],
     categoryList: [],
-    itemId: null
+    itemId: null,
+    userId: null
 });
 
 export { useGlobalState }
