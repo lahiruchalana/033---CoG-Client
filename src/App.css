@@ -367,6 +367,16 @@ label {
 
 #item_image_in_cart {
   object-fit: contain;
-  width: 50%;
+  width: 30%;
   height: auto;
+}
+
+.line_break_small_with_shadow {
+  background-color: #acadaf;
+  height: 2px;
+  box-shadow: 2px 2px 5px 2px #c5c5c5;
+}
+
+#checkout_box_for_item {
+  box-shadow: 2px 2px 5px 2px #c5c5c5;
 }
