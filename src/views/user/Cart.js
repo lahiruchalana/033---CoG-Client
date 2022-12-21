@@ -5,20 +5,24 @@ import ItemBoxInCart from "../../components/item_box/ItemBoxInCart";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ItemBox from "../../components/item_box/ItemBox";
+import { useGlobalState } from '../../global/UserGlobalData'
+
 
 
 function Cart() {
     const [cart, setCart] = useState([])
     const [itemList, setItemList] = useState([]);
     const [selectedCartItems, setSelectedCartItems] = useState([])
+    const [cartItemTotal, setCartItemTotal] = useGlobalState('cartItemTotal');
+
 
     const cartItems = [
-        {cartId: 2, userId: 3, itemId: 56, itemName: "Scooter Ed", rate: 4, shortDescription: "perspicim entore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 2, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"}, 
-        {cartId: 2, userId: 3, itemId: 34, itemName: "Wheel Chair", rate: 2, shortDescription: "perspiciquae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
-        {cartId: 2, userId: 3, itemId: 6, itemName: "Party Item DF", rate: 5, shortDescription: "perspicimo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 3, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
-        {cartId: 2, userId: 3, itemId: 8, itemName: "Scooter Ed", rate: 3, shortDescription: "perspiciatae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 5, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"},
-        {cartId: 2, userId: 3, itemId: 99, itemName: "Medical Item AS", rate: 2, shortDescription: "perspicue ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
-        {cartId: 2, userId: 3, itemId: 46, itemName: "Stroller Ed", rate: 5, shortDescription: "perspiciatisab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"}
+        {cartId: 2, userId: 3, itemId: 56, rentOrSell: "SELL", itemName: "Scooter Ed", rate: 4, shortDescription: "perspicim entore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 2, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"}, 
+        {cartId: 2, userId: 3, itemId: 34, rentOrSell: "RENT AND SELL", itemName: "Wheel Chair", rate: 2, shortDescription: "perspiciquae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
+        {cartId: 2, userId: 3, itemId: 6, rentOrSell: "RENT", itemName: "Party Item DF", rate: 5, shortDescription: "perspicimo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 3, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
+        {cartId: 2, userId: 3, itemId: 8, rentOrSell: "SELL AND SELL", itemName: "Scooter Ed", rate: 3, shortDescription: "perspiciatae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 5, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"},
+        {cartId: 2, userId: 3, itemId: 99, rentOrSell: "RENT", itemName: "Medical Item AS", rate: 2, shortDescription: "perspicue ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
+        {cartId: 2, userId: 3, itemId: 46, rentOrSell: "SELL", itemName: "Stroller Ed", rate: 5, shortDescription: "perspiciatisab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"}
     ]
 
     useEffect (() => {
@@ -33,6 +37,7 @@ function Cart() {
 
     useEffect(() => {
         setCart(cartItems);
+        setCartItemTotal(cart.length)
     }, [cart.length])
 
     useEffect(() => {
@@ -64,9 +69,12 @@ function Cart() {
                                                 <ItemBoxInCart cartItem={item} />
                                             </Col>
                                             <Col sm={1}>
-                                                <Form.Check onClick={() =>
-                                                    proceedCartHandle(item.itemId)
-                                                }  aria-label="option 1" />
+                                                <div style={{ boxShadow: "2px 2px 5px 2px #8f8d8d", width: "35px", borderRadius: "3px" }}>
+                                                    <Form.Check 
+                                                        onClick={() =>
+                                                        proceedCartHandle(item.itemId)
+                                                    }  aria-label="option 1" />
+                                                </div>
                                             </Col>
                                         </Row>
                                         <br></br>

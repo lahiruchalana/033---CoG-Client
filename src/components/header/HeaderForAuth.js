@@ -20,22 +20,22 @@ function HeaderForAuth() {
                         <img className="logo_image" src={logo} alt="Logo" />
                     </a>
                     <Row >
-                        <Col id="signup_button">
+                    <Col id="signup_button">
                             <Nav
                                 className="me-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px', width: "70px" }}
+                                style={{ maxHeight: '100px', width: "90px" }}
                                 navbarScroll
                             >
-                                <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="/user_registration">Sign up</Nav.Link>
+                                <Nav.Link style={{ fontSize: '16px' }} href="/user_registration">Sign up</Nav.Link>
                             </Nav>  
                         </Col>
-                        <Col>
+                        <Col id="login_button">
                             <Nav
                                 className="me-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px', width: "60px" }}
+                                style={{ maxHeight: '100px', width: "90px" }}
                                 navbarScroll
                             >
-                                <Nav.Link style={{ fontSize: '16px' }} id="user_behivor_categories" href="/login">Log in</Nav.Link>                            
+                                <Nav.Link style={{ fontSize: '16px' }} href="/login">Log in</Nav.Link>                            
                             </Nav>  
                         </Col>
                     </Row>

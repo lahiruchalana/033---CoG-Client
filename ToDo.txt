@@ -7,8 +7,6 @@
 
 7. all to checkut button ekata udin box ekaka select karana items realtime add wenna danna
 increse quantity in items in cart
-8. cart item count in cart icon
-9. SELL or RENT in cart item name
 10. quantity increase and dicrease 
 11. rate ekath danna cart ekata
 12. in the end place items in cart

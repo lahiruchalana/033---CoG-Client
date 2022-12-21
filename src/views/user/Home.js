@@ -49,10 +49,10 @@ function Home() {
             {/* ----------- Starts, Item boxes ----------- */}
 
             <Row>
-                <Col sm={1}>
+                <Col style={{ marginLeft: "40px" }}>
                     <div id="title_home_one_bar"></div>
                 </Col>
-                <Col sm={6} id="title_home_one">
+                <Col style={{ marginLeft: "-130%" }} id="title_home_one">
                     <h4>Wheelchair, stroller, scooter rentals & more</h4>
                 </Col>
             </Row>

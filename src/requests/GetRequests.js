@@ -1,10 +1,10 @@
 import { useGlobalState } from '../global/UserGlobalData'
 
-const catalogServiceUrl = process.env.CATALOG_SERVICE_API_URL
-const cartServiceUrl = process.env.CART_SERVICE_API_URL
+let catalogServiceUrl = process.env.REACT_APP_CATALOG_SERVICE_API_URL;
+let cartServiceUrl = process.env.REACT_APP_CART_SERVICE_API_URL;
 
 function GetCategories() {
-    const getCategoryURL = catalogServiceUrl + "category/all/children";
+    const getCategoryURL = "http://localhost:9095/api/v5/category/all/children"; // set this to a env variable
 
     return getCategoryURL
 }
