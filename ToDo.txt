@@ -13,6 +13,8 @@ increse quantity in items in cart
 11. rate ekath danna cart ekata
 12. in the end place items in cart
 
+13. Should have to do a POST request in quantity incresing or decresing in cart
+
 
 Warning
 1. many warnings coming in /item page due to setState inside the useEffect

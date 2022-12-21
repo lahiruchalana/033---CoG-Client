@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-
+import Rating from 'react-rating';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 
 function ItemBoxInCart(props) {
 
@@ -14,13 +15,27 @@ function ItemBoxInCart(props) {
                 </Col>
                 <Col style={{ textAlign: "left" }} sm={4}>
                     <h4>{props.cartItem.itemName}</h4>
-                    <h7>{props.cartItem.shortDescription}</h7>
+                    <Rating 
+                        emptySymbol={<FaRegStar />}
+                        fullSymbol={<FaStar color="gold"/>}
+                        placeholderSymbol={<FaStar color="gold"/>}
+                        placeholderRating={props.cartItem.rate}
+                    />
+                    <br></br>
+                    <h9>{props.cartItem.shortDescription}</h9>
                 </Col>
                 <Col style={{ display: "block",  marginLeft: "auto", marginRight: "auto"}} sm={3}>
                     <Row>
-                        <h6 style={{ color: "green" }}>Quanity: {props.cartItem.quantity}</h6>
+                        <Col>
+                            <Button id="increment_decrement_button" variant="outline-info">-</Button>
+                        </Col>
+                        <Col>
+                            <h6 style={{ color: "green" }}>Quanity: {props.cartItem.quantity}</h6>
+                        </Col>
+                        <Col>
+                            <Button id="increment_decrement_button" variant="outline-info">+</Button>
+                        </Col>
                     </Row>
-                    <br></br>
                     <br></br>
                     <br></br>
                     <Row>    
