@@ -30,7 +30,7 @@ function ItemBoxInCart(props) {
                             <Button id="increment_decrement_button" variant="outline-info">-</Button>
                         </Col>
                         <Col>
-                            <h6 style={{ color: "green" }}>Quanity: {props.cartItem.quantity}</h6>
+                            <h6 style={{ color: "green" }}>Quant: {props.cartItem.quantity}</h6>
                         </Col>
                         <Col>
                             <Button id="increment_decrement_button" variant="outline-info">+</Button>
