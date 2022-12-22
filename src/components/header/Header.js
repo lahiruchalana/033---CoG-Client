@@ -24,6 +24,7 @@ function Header() {
     const [isNullChildren, setIsNullChildren] = useState(false); 
     const [categoryList, setCategoryList] = useGlobalState('categoryList');
     const [cartItemTotal, setCartItemTotal] = useGlobalState('cartItemTotal');
+    const [userId, setUserId] = useGlobalState('userId');
     const getCategoryURL = GetCategories();
     const navigate = useNavigate();
 
@@ -32,7 +33,7 @@ function Header() {
             var categoryData = eval('(' + (response.data.data) + ')');
             setCategoryArray(categoryData);
             setCategoryList(categoryData);
-            console.log("Response: ", categoryData);
+            console.log("Response of Categories: ", categoryData);
         })
         .catch(function (error) {
             if (error.response) {
@@ -47,6 +48,12 @@ function Header() {
 
 
     }, [getCategoryURL, categoryArray.length])
+
+
+    useEffect(() => {
+        setUserId(5); // should set userId using the ACCESS_TOKEN 
+        console.log("userId: ", userId)
+    }, [userId])
 
     useEffect(() => {
         console.log("clickedCategoryName", clickedCategoryName);
@@ -79,7 +86,7 @@ function Header() {
                                 style={{ maxHeight: '100px', width: "90px" }}
                                 navbarScroll
                             >
-                                <Nav.Link style={{ fontSize: '16px' }} href="/user_registration">Sign up</Nav.Link>
+                                <Nav.Link style={{ fontSize: '16px', color: "white" }} href="/user_registration">Sign up</Nav.Link>
                             </Nav>  
                         </Col>
                         <Col id="login_button">
@@ -88,7 +95,7 @@ function Header() {
                                 style={{ maxHeight: '100px', width: "90px" }}
                                 navbarScroll
                             >
-                                <Nav.Link style={{ fontSize: '16px' }} href="/login">Log in</Nav.Link>                            
+                                <Nav.Link style={{ fontSize: '16px', color: "white" }} href="/login">Log in</Nav.Link>                            
                             </Nav>  
                         </Col>
                     </Row>
@@ -103,7 +110,7 @@ function Header() {
                 <Container fluid>
                     <Nav
                         className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px' }}
+                        style={{ maxHeight: '100px', color: "white" }}
                         navbarScroll
                     >
                         <Nav.Link id="user_behivor_categories" href="#action1">Scooter</Nav.Link>
@@ -146,6 +153,9 @@ function Header() {
 
 
             {/* ----------- Starts, Category header ----------- */}
+
+            <div id="category_nav_margin_top"></div>
+            <div id="category_nav_margin"></div>
 
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container fluid>

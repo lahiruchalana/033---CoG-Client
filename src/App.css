@@ -92,6 +92,7 @@ label {
 
 .dropdown_button {
   border: none;
+  color: white;
 }
 
 .dropdown-toggle::after {
@@ -112,10 +113,12 @@ label {
 
 #user_behivor_categories {
   font-size: 18px;
+  color: white;
 }
 
 #catgory_button_for_null_children {
   border: none;
+  color: white;
 }
 
 #title_home_one_bar {
@@ -202,11 +205,21 @@ label {
 
 #belove_of_rent_anything_text {
   font-size: 14px;
-  color: white;
+  color: rgb(192, 192, 192);
   font-weight: 0;
   font-family: Poppins,sans-serif;
   line-height: 1.5;
   background-color: #1f2328;
+}
+
+#category_nav_margin_top {
+  height: 5px;
+  background-color: #181818;
+}
+
+#category_nav_margin {
+  height: 1px;
+  background-color: #5f6062;
 }
 
 .item_image_of_item_page {

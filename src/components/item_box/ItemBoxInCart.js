@@ -14,7 +14,7 @@ function ItemBoxInCart(props) {
                     <img id="item_image_in_cart" src={props.cartItem.imageUrl}></img>
                 </Col>
                 <Col style={{ textAlign: "left" }} sm={4}>
-                    <h4>{props.cartItem.itemName}<Button style={{ fontSize: "10px", fontWeight: "600", padding: "3px", marginLeft: "10px" }} variant="info">{props.cartItem.rentOrSell}</Button></h4>
+                    <h4>{props.cartItem.itemName}<Button style={{ fontSize: "10px", fontWeight: "600", padding: "3px", marginLeft: "10px" }} variant="info">{props.cartItemByUserId.sellOrRent}</Button></h4>
                     <Rating 
                         emptySymbol={<FaRegStar />}
                         fullSymbol={<FaStar color="gold"/>}
@@ -22,7 +22,7 @@ function ItemBoxInCart(props) {
                         placeholderRating={props.cartItem.rate}
                     />
                     <br></br>
-                    <h9>{props.cartItem.shortDescription}<a href="/#">see the product..</a></h9>
+                    <h6>{props.cartItem.shortDescription} <h6>{props.cartItemByUserId.catalogItemClusterId}</h6> <a href="/#">see the product</a></h6>
                 </Col>
                 <Col style={{ display: "block",  marginLeft: "auto", marginRight: "auto"}} sm={3}>
                     <Row>
@@ -30,7 +30,7 @@ function ItemBoxInCart(props) {
                             <Button id="increment_decrement_button" variant="outline-info">-</Button>
                         </Col>
                         <Col>
-                            <h6 style={{ color: "green" }}>Quant: {props.cartItem.quantity}</h6>
+                            <h6 style={{ color: "green" }}>Quant: {props.cartItemByUserId.quantity}</h6>
                         </Col>
                         <Col>
                             <Button id="increment_decrement_button" variant="outline-info">+</Button>
@@ -38,9 +38,9 @@ function ItemBoxInCart(props) {
                     </Row>
                     <br></br>
                     <br></br>
-                    <Row>    
+                    {/* <Row>    
                         <Button id="remove_from_cart_button" variant="secondary">Remove From Cart</Button>
-                    </Row>
+                    </Row> */}
                 </Col>
             </Row>
         </div>

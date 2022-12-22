@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ItemBox from "../../components/item_box/ItemBox";
 import { useGlobalState } from '../../global/UserGlobalData'
+import { GetCartByUserId } from "../../requests/GetRequests";
+import axios from "axios";
 
 
 
@@ -13,14 +15,34 @@ function Cart() {
     const [cart, setCart] = useState([])
     const [itemList, setItemList] = useState([]);
     const [selectedCartItems, setSelectedCartItems] = useState([])
+    const [cartItemsByUserId, setCartItemsByUserId] = useState([])
     const [cartItemTotal, setCartItemTotal] = useGlobalState('cartItemTotal');
+    const [userId, setUserId] = useGlobalState('userId');
 
+    const getCartByUserIdURL = GetCartByUserId();
+
+    useEffect(() => {   
+        axios.get(getCartByUserIdURL, {},).then((response) => {
+            const data = response.data.data.shoppingCartActualCatalogItemClusterDTOS
+            setCartItemsByUserId(data);
+            console.log("Response of Cart Item Data of User: ", cartItemsByUserId);
+        })
+        .catch(function (error) {
+            if (error.response) {
+                console.log("error.response.status", error.response.status);
+            } else {
+                console.log("error.message", error.message);
+            }
+        })
+
+
+    }, [getCartByUserIdURL, cartItemsByUserId.length])
 
     const cartItems = [
         {cartId: 2, userId: 3, itemId: 56, rentOrSell: "SELL", itemName: "Scooter Ed", rate: 4, shortDescription: "perspicim entore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 2, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"}, 
-        {cartId: 2, userId: 3, itemId: 34, rentOrSell: "RENT AND SELL", itemName: "Wheel Chair", rate: 2, shortDescription: "perspiciquae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
-        {cartId: 2, userId: 3, itemId: 6, rentOrSell: "RENT", itemName: "Party Item DF", rate: 5, shortDescription: "perspicimo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 3, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
-        {cartId: 2, userId: 3, itemId: 8, rentOrSell: "SELL AND SELL", itemName: "Scooter Ed", rate: 3, shortDescription: "perspiciatae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 5, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"},
+        {cartId: 2, userId: 3, itemId: 34, rentOrSell: "RENT AND SELL", itemName: "Wheel Chair", rate: 3, shortDescription: "perspiciquae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
+        {cartId: 2, userId: 3, itemId: 6, rentOrSell: "RENT", itemName: "Party Item DF", rate: 5, shortDescription: "perspicimo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 3, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11285.png"},
+        {cartId: 2, userId: 3, itemId: 8, rentOrSell: "SELL AND SELL", itemName: "Scooter Ed", rate: 3, shortDescription: "perspiciatae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 5, imageUrl: "https://pngimg.com/uploads/pram/pram_PNG101292.png"},
         {cartId: 2, userId: 3, itemId: 99, rentOrSell: "RENT", itemName: "Medical Item AS", rate: 2, shortDescription: "perspicue ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"},
         {cartId: 2, userId: 3, itemId: 46, rentOrSell: "SELL", itemName: "Stroller Ed", rate: 5, shortDescription: "perspiciatisab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 1, imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"}
     ]
@@ -31,7 +53,7 @@ function Cart() {
             {itemName: "Slingshot DC", rate: 4, shortDescription: "Lorem illamco labor t ut labore et dolore labor", imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"},
             {itemName: "Stroller ASC", rate: 3, shortDescription: "Sed do eiusmod tempor incididunt ut labore et dolore labor", imageUrl: "https://pngimg.com/uploads/pram/pram_PNG101292.png"},
             {itemName: "Moped DE", rate: 4, shortDescription: "Lorem ipsulore magna aliqua. Ut enim ad minim veniam, quis ", imageUrl: "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png"},
-            {itemName: "Moped UI", rate: 2, shortDescription: "Lorem ipsum dolor sitquis nostrud exercitation ullamco labor", imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"}
+            {itemName: "Moped UI", rate: 3, shortDescription: "Lorem ipsum dolor sitquis nostrud exercitation ullamco labor", imageUrl: "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png"}
         ])
     })
 
@@ -63,10 +85,11 @@ function Cart() {
                         <br></br>
                         {
                             cart.map((item, key) => {
-                                return <div>
+                                return (key>cartItemsByUserId.length-1) ? null : 
+                                <div>
                                         <Row>
                                             <Col>
-                                                <ItemBoxInCart cartItem={item} />
+                                                <ItemBoxInCart cartItem={item} cartItemByUserId={cartItemsByUserId[key]} />
                                             </Col>
                                             <Col sm={1}>
                                                 <div style={{ boxShadow: "2px 2px 5px 2px #8f8d8d", width: "35px", borderRadius: "3px" }}>

@@ -26,9 +26,9 @@ function GetItemById() {
 function GetCartByUserId() {
     const [userId, setUserId] = useGlobalState('userId');
 
-    const getCartUrl = cartServiceUrl + `cart/getByUserId/${userId}`;
+    const getCartByUserIdUrl = `http://localhost:2000/api/v5/cart/getByUserId/${userId}`;
 
-    return getCartUrl
+    return getCartByUserIdUrl
 }
 
 export { GetCategories, GetItems, GetItemById, GetCartByUserId };
