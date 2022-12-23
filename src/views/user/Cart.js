@@ -10,7 +10,7 @@ import { GetCartByUserId } from "../../requests/GetRequests";
 import { MdDelete } from 'react-icons/md';
 import axios from "axios";
 import DeleteItemFromCart from "../../requests/DeleteRequests";
-
+import Swal from 'sweetalert2'
 
 
 function Cart() {
@@ -102,7 +102,27 @@ function Cart() {
         console.log("Deleted cart item: ", cartItemForDelete);
         console.log(cartItemForDelete.catalogItemClusterId);
 
-        setRemovingItemFromUserCart(cartItemForDelete.catalogItemClusterId)
+        Swal.fire({
+            title: 'Do you need to remove this item?',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            },
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: `No, I don't need to Delete`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setRemovingItemFromUserCart(cartItemForDelete.catalogItemClusterId);
+                Swal.fire('Removed the item!', '', 'success');
+            } else if (result.isDenied) {
+                Swal.fire(`Didn't removed the item`, '', 'success');
+            }
+        })
+        
     }
 
     return (
