@@ -19,6 +19,8 @@ function Cart() {
     const [selectedCartItems, setSelectedCartItems] = useState([])
     const [cartItemsByUserId, setCartItemsByUserId] = useState([])
     const [removingItemFromUserCart, setRemovingItemFromUserCart] = useState(null)
+    const [deletingExecuted, setDeletingExecuted] = useState(false);
+
     const [cartItemTotal, setCartItemTotal] = useGlobalState('cartItemTotal');
     const [userId, setUserId] = useGlobalState('userId');
 
@@ -31,6 +33,7 @@ function Cart() {
             setCartItemsByUserId(data);
             console.log("Response: ", response)
             console.log("Response of Cart Item Data of User: ", cartItemsByUserId);
+            setDeletingExecuted(false);
         })
         .catch(function (error) {
             if (error.response) {
@@ -41,11 +44,12 @@ function Cart() {
         })
 
 
-    }, [getCartByUserIdURL, cartItemsByUserId.length])
+    }, [getCartByUserIdURL, cartItemsByUserId.length, deletingExecuted])
 
     useEffect(() => {
         axios.delete(`${deleteItemFromCartURL}?userId=${userId}&itemCatalogId=${removingItemFromUserCart}`, {},).then((response) => {
             console.log("Response for delete item from cart: ", response);
+            setDeletingExecuted(true)
         })
         .catch(function (error) {
             if (error.response) {
