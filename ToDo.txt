@@ -5,7 +5,7 @@
 5. Google Map - for estimate cost
 6. not loading catgories to frot end due to request api changes in requests folder
 
-7. cart ekata item add wenna hadanna -> home page eken ho categories through gihilla
+7. cart ekata item add wenna hadanna -> home page eken ho categories through gihilla ->>> Item eka harida balanna....
 
 8. Header eka athule cart eka GET karala cart.length eken header eke cart eke numberOfItems set karanna
 9. Quantity eka 1kata wada adu nowenna set karanna -> cart page eke 

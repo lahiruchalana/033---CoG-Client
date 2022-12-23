@@ -60,16 +60,16 @@ function Home() {
                 
             <Row id="item_level_one_collection_row">
                 <Col id="item_box_container">
-                    <LevelOneBox title="Hot rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png" ]}'/>
+                    <LevelOneBox title="Hot rentals" itemArray='{ "itemId": [2,3,7,5], "imageURL": [ "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png", "https://pngimg.com/uploads/bed/bed_PNG17422.png", "https://pngimg.com/uploads/scooter/scooter_PNG11339.png", "https://pngimg.com/uploads/scooter/scooter_PNG11292.png", "https://pngimg.com/uploads/scooter/scooter_PNG11299.png" ]}'/>
                 </Col>
                 <Col id="item_box_container">
-                    <LevelOneBox title="Most searched rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png" ]}'/>
+                    <LevelOneBox title="Most searched rentals" itemArray='{ "itemId": [4,3,2,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png", "https://pngimg.com/uploads/bed/bed_PNG17422.png", "https://pngimg.com/uploads/scooter/scooter_PNG11339.png", "https://pngimg.com/uploads/scooter/scooter_PNG11292.png", "https://pngimg.com/uploads/scooter/scooter_PNG11299.png" ]}'/>
                 </Col>
                 <Col id="item_box_container">
-                    <LevelOneBox title="New rentals" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png" ]}'/>
+                    <LevelOneBox title="New rentals" itemArray='{ "itemId": [5,3,7,4], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png", "https://pngimg.com/uploads/bed/bed_PNG17422.png", "https://pngimg.com/uploads/scooter/scooter_PNG11339.png", "https://pngimg.com/uploads/scooter/scooter_PNG11292.png", "https://pngimg.com/uploads/scooter/scooter_PNG11299.png" ]}'/>
                 </Col>
                 <Col id="item_box_container">
-                    <LevelOneBox title="Rental categories" itemArray='{ "itemId": [1,3,4,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png" ]}'/>
+                    <LevelOneBox title="Rental categories" itemArray='{ "itemId": [2,6,3,5], "imageURL": [ "https://pngimg.com/uploads/volleyball/volleyball_PNG23.png", "https://pngimg.com/uploads/scooter/scooter_PNG11329.png", "https://pngimg.com/uploads/pram/pram_PNG101292.png", "https://pngimg.com/uploads/wheelchair/wheelchair_PNG82825.png", "https://pngimg.com/uploads/bed/bed_PNG17422.png", "https://pngimg.com/uploads/scooter/scooter_PNG11339.png", "https://pngimg.com/uploads/scooter/scooter_PNG11292.png", "https://pngimg.com/uploads/scooter/scooter_PNG11299.png" ]}'/>
                 </Col>
             </Row>
 

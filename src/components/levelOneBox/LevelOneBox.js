@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { GetItems } from '../../requests/GetRequests'
 import axios from "axios";
-
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-import MobilityScooter from '../../assets/MobilityScooter.png'
-import HospitalBed from '../../assets/HospitalBed.png'
+import Col from 'react-bootstrap/Col'
 import { useGlobalState } from '../../global/UserGlobalData'
 import { useNavigate } from "react-router-dom";
 
@@ -56,7 +52,7 @@ function LevelOneBox(props) {
                                 setItemId(id);
                                 navigate("/items");
                             }}>
-                                <img className="box_first_image" src={itemArray.imageURL[key]} alt="ImageOfItems"/>
+                                <img className="box_first_image" src={itemArray.imageURL[id]} alt="ImageOfItems"/>
                             </Col>
                         }
                     })}
@@ -68,7 +64,7 @@ function LevelOneBox(props) {
                                     setItemId(id);
                                     navigate("/items");
                                 }}>
-                                <img className="box_first_image" src={itemArray.imageURL[key]} alt="ImageOfItems" />
+                                <img className="box_first_image" src={itemArray.imageURL[id]} alt="ImageOfItems" />
                             </Col>
                         }
                     })}
