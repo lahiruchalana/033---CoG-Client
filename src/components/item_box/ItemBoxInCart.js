@@ -4,8 +4,71 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import { PostNewCartORUpdateCart } from "../../requests/PostRequests";
+import axios from "axios";
+import { useGlobalState } from '../../global/UserGlobalData'
+
 
 function ItemBoxInCart(props) {
+    const postNewCartORUpdateCartURL = PostNewCartORUpdateCart();
+    const [userId, setUserId] = useGlobalState('userId');
+    const [isIncrement, setIsIncrement] = useState(false);
+    const [isDecrement, setIsDecrement] = useState(false);
+    const [valueChanging, setValueChanging] = useState(0);
+    const [quantity, setQuantity] = useState(null)
+
+    useEffect(() => {
+        setQuantity(props.cartItemByUserId.quantity);
+    }, [])
+
+    useEffect(() => {
+        console.log("(valueChanging for execute useEffect) - valueChanging: ", valueChanging);
+        if (isIncrement === true) {
+            setQuantity(quantity + 1);
+            axios.post(postNewCartORUpdateCartURL, {
+                shoppingCartActualCatalogItemClusterDTOS: [
+                    {
+                    catalogItemClusterId: props.cartItemByUserId.catalogItemClusterId,
+                    quantity: quantity + 1,
+                    sellOrRent: props.cartItemByUserId.sellOrRent
+                    }
+                ],
+                userId: userId
+                },).then((response) => {
+                console.log("Response of Quantity Changing: ", response.data);
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    console.log("error.response.status", error.response.status);
+                } else {
+                    console.log("error.message", error.message);
+                }
+            })
+        } else if (isDecrement === true) {
+            setQuantity(quantity - 1);
+            axios.post(postNewCartORUpdateCartURL, {
+                shoppingCartActualCatalogItemClusterDTOS: [
+                    {
+                    catalogItemClusterId: props.cartItemByUserId.catalogItemClusterId,
+                    quantity: quantity - 1,
+                    sellOrRent: props.cartItemByUserId.sellOrRent
+                    }
+                ],
+                userId: userId
+                },).then((response) => {
+                console.log("Response of Quantity Changing: ", response.data);
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    console.log("error.response.status", error.response.status);
+                } else {
+                    console.log("error.message", error.message);
+                }
+            })
+        }
+
+    }, [isIncrement, isDecrement, valueChanging])
+
 
     return(
         <div>
@@ -27,20 +90,25 @@ function ItemBoxInCart(props) {
                 <Col style={{ display: "block",  marginLeft: "auto", marginRight: "auto"}} sm={3}>
                     <Row>
                         <Col>
-                            <Button id="increment_decrement_button" variant="outline-info">-</Button>
+                            <Button id="increment_decrement_button" variant="outline-info" onClick={() => {
+                                setIsDecrement(true);
+                                setIsIncrement(false);
+                                setValueChanging(valueChanging - 1);
+                            }}>-</Button>
                         </Col>
                         <Col>
-                            <h6 style={{ color: "green" }}>Quant: {props.cartItemByUserId.quantity}</h6>
+                            <h6 style={{ color: "green" }}>Quant: {quantity}</h6>
                         </Col>
                         <Col>
-                            <Button id="increment_decrement_button" variant="outline-info">+</Button>
+                            <Button id="increment_decrement_button" variant="outline-info" onClick={() => {
+                                setIsIncrement(true);
+                                setIsDecrement(false);
+                                setValueChanging(valueChanging + 1);
+                            }}>+</Button>
                         </Col>
                     </Row>
                     <br></br>
                     <br></br>
-                    {/* <Row>    
-                        <Button id="remove_from_cart_button" variant="secondary">Remove From Cart</Button>
-                    </Row> */}
                 </Col>
             </Row>
         </div>

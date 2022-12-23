@@ -7,7 +7,9 @@ import Form from 'react-bootstrap/Form';
 import ItemBox from "../../components/item_box/ItemBox";
 import { useGlobalState } from '../../global/UserGlobalData'
 import { GetCartByUserId } from "../../requests/GetRequests";
+import { MdDelete } from 'react-icons/md';
 import axios from "axios";
+import DeleteItemFromCart from "../../requests/DeleteRequests";
 
 
 
@@ -16,15 +18,18 @@ function Cart() {
     const [itemList, setItemList] = useState([]);
     const [selectedCartItems, setSelectedCartItems] = useState([])
     const [cartItemsByUserId, setCartItemsByUserId] = useState([])
+    const [removingItemFromUserCart, setRemovingItemFromUserCart] = useState(null)
     const [cartItemTotal, setCartItemTotal] = useGlobalState('cartItemTotal');
     const [userId, setUserId] = useGlobalState('userId');
 
     const getCartByUserIdURL = GetCartByUserId();
+    const deleteItemFromCartURL = DeleteItemFromCart();
 
     useEffect(() => {   
         axios.get(getCartByUserIdURL, {},).then((response) => {
             const data = response.data.data.shoppingCartActualCatalogItemClusterDTOS
             setCartItemsByUserId(data);
+            console.log("Response: ", response)
             console.log("Response of Cart Item Data of User: ", cartItemsByUserId);
         })
         .catch(function (error) {
@@ -37,6 +42,21 @@ function Cart() {
 
 
     }, [getCartByUserIdURL, cartItemsByUserId.length])
+
+    useEffect(() => {
+        axios.delete(`${deleteItemFromCartURL}?userId=${userId}&itemCatalogId=${removingItemFromUserCart}`, {},).then((response) => {
+            console.log("Response for delete item from cart: ", response);
+        })
+        .catch(function (error) {
+            if (error.response) {
+                console.log("error.response.status", error.response.status);
+            } else {
+                console.log("error.message", error.message);
+            }
+        })
+
+
+    }, [removingItemFromUserCart, userId])
 
     const cartItems = [
         {cartId: 2, userId: 3, itemId: 56, rentOrSell: "SELL", itemName: "Scooter Ed", rate: 4, shortDescription: "perspicim entore veritatis et quasi architecto beatae vitae dicta sunt explicabo.....", quantity: 2, imageUrl: "https://pngimg.com/uploads/scooter/scooter_PNG11329.png"}, 
@@ -59,8 +79,8 @@ function Cart() {
 
     useEffect(() => {
         setCart(cartItems);
-        setCartItemTotal(cart.length)
-    }, [cart.length])
+        setCartItemTotal(cartItemsByUserId.length)
+    }, [cart.length, cartItemsByUserId.length])
 
     useEffect(() => {
         console.log(selectedCartItems);
@@ -74,11 +94,18 @@ function Cart() {
         }
     }
 
+    function removeItemFromUserCart(cartItemForDelete) {
+        console.log("Deleted cart item: ", cartItemForDelete);
+        console.log(cartItemForDelete.catalogItemClusterId);
+
+        setRemovingItemFromUserCart(cartItemForDelete.catalogItemClusterId)
+    }
+
     return (
         <div>
             <Header/>
             <div style={{ marginLeft: "40px", marginRight: "40px" }}>
-                <Row>
+                <Row> 
                     <Col sm={9}>
                         <h5 style={{ textAlign: "left", marginLeft: "50px"}}>My Cart</h5>
                         <div style={{ marginRight: "30px" }} className="line_break_small_with_shadow"></div>
@@ -92,11 +119,16 @@ function Cart() {
                                                 <ItemBoxInCart cartItem={item} cartItemByUserId={cartItemsByUserId[key]} />
                                             </Col>
                                             <Col sm={1}>
-                                                <div style={{ boxShadow: "2px 2px 5px 2px #8f8d8d", width: "35px", borderRadius: "3px" }}>
+                                                <div style={{ boxShadow: "2px 1px 5px 1px #8f8d8d", width: "35px", borderRadius: "3px",   cursor: "pointer" }}>
                                                     <Form.Check 
                                                         onClick={() =>
                                                         proceedCartHandle(item.itemId)
                                                     }  aria-label="option 1" />
+                                                </div>
+                                                <div style={{ marginTop: "100px", marginRight: "12px" }}>
+                                                    <MdDelete id="delet_button" onClick={() => {
+                                                        removeItemFromUserCart(cartItemsByUserId[key]);
+                                                    }} style={{ fontSize: "24px", padding: "1px" }} />
                                                 </div>
                                             </Col>
                                         </Row>

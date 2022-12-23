@@ -410,3 +410,7 @@ label {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+#delet_button {
+  cursor: pointer;
+}

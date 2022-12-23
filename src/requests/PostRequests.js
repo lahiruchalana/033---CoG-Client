@@ -16,4 +16,10 @@ function PostUserRegistration() {
     return userRegistrationURL;
 }
 
-export { PostUserLoginData, PostUserRegistration };
+function PostNewCartORUpdateCart() {
+    const postNewCartORUpdateCartURL = "http://localhost:2000/api/v5/cart/add/items";
+    
+    return postNewCartORUpdateCartURL;
+}
+
+export { PostUserLoginData, PostUserRegistration, PostNewCartORUpdateCart };

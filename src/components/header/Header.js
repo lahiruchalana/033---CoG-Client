@@ -49,6 +49,9 @@ function Header() {
 
     }, [getCategoryURL, categoryArray.length])
 
+    useEffect(() => {
+        console.log("cartItemTotal: ", cartItemTotal)
+    }, [cartItemTotal])
 
     useEffect(() => {
         setUserId(5); // should set userId using the ACCESS_TOKEN 
@@ -56,8 +59,8 @@ function Header() {
     }, [userId])
 
     useEffect(() => {
-        console.log("clickedCategoryName", clickedCategoryName);
-        console.log("isNullChildren", isNullChildren)
+        console.log("clickedCategoryName: ", clickedCategoryName);
+        console.log("isNullChildren: ", isNullChildren)
     }, [clickedCategoryName, isNullChildren])
 
 
