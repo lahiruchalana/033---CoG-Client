@@ -11,7 +11,8 @@ const { useGlobalState } = createGlobalState({
     authList: [],
     categoryList: [],
     itemId: null,
-    userId: null
+    userId: null,
+    cartItemTotal: null
 });
 
 export { useGlobalState }

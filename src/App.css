@@ -92,6 +92,7 @@ label {
 
 .dropdown_button {
   border: none;
+  color: white;
 }
 
 .dropdown-toggle::after {
@@ -112,10 +113,12 @@ label {
 
 #user_behivor_categories {
   font-size: 18px;
+  color: white;
 }
 
 #catgory_button_for_null_children {
   border: none;
+  color: white;
 }
 
 #title_home_one_bar {
@@ -202,11 +205,21 @@ label {
 
 #belove_of_rent_anything_text {
   font-size: 14px;
-  color: white;
+  color: rgb(192, 192, 192);
   font-weight: 0;
   font-family: Poppins,sans-serif;
   line-height: 1.5;
   background-color: #1f2328;
+}
+
+#category_nav_margin_top {
+  height: 5px;
+  background-color: #181818;
+}
+
+#category_nav_margin {
+  height: 1px;
+  background-color: #5f6062;
 }
 
 .item_image_of_item_page {
@@ -314,5 +327,90 @@ label {
 }
 
 #signup_button {
-  margin-right: -25px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-left: -20px;
+  margin-right: -40px;
+}
+
+#login_button {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+}
+
+#more_items_button {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#go_to_checkout_button {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+}
+
+#remove_from_cart_button {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#change_selections_button {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#proceed_to_checkout_button {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#item_image_in_cart {
+  object-fit: contain;
+  width: 30%;
+  height: auto;
+}
+
+.line_break_small_with_shadow {
+  background-color: #acadaf;
+  height: 2px;
+  box-shadow: 2px 2px 5px 2px #c5c5c5;
+}
+
+#checkout_box_for_item {
+  box-shadow: 2px 2px 5px 2px #c5c5c5;
+}
+
+#all_checkout_container {
+  box-shadow: 2px 2px 5px 2px #c5c5c5;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#delet_button {
+  cursor: pointer;
 }

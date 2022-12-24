@@ -3,19 +3,19 @@
 3. Carousal for image
 4. Signup/ Signin button
 5. Google Map - for estimate cost
+6. not loading catgories to frot end due to request api changes in requests folder
 
+7. cart ekata item add wenna hadanna -> home page eken ho categories through gihilla ->>> Item eka harida balanna....
 
+8. Header eka athule cart eka GET karala cart.length eken header eke cart eke numberOfItems set karanna
+9. Quantity eka 1kata wada adu nowenna set karanna -> cart page eke 
+
+13. Should have to do a POST request in quantity incresing or decresing in cart
 Warning
 1. many warnings coming in /item page due to setState inside the useEffect
 
-
-
-
-
-
-
-
-
+ToDo
+1. do not send the CLIENT_SECRET using session storage 
 
 
 
